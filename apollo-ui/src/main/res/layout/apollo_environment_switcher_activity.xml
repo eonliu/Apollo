@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".es.EnvironmentSwitcherActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/apollo_toolbar" />
+
+    <TextView
+        android:id="@+id/current_environment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/apollo_current_environment"
+        android:textColor="@color/apollo_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Spinner
+        android:id="@+id/environment_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:dropDownSelector="@null"
+        app:layout_constraintBottom_toBottomOf="@id/current_environment"
+        app:layout_constraintEnd_toStartOf="@id/log_switch"
+        app:layout_constraintStart_toEndOf="@id/current_environment"
+        app:layout_constraintTop_toTopOf="@id/current_environment" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/log_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/apollo_log_switch"
+        android:textColor="@color/apollo_yellow"
+        app:layout_constraintBottom_toBottomOf="@id/current_environment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/current_environment" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/current_environment"
+        tools:listitem="@layout/apollo_environment_default_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

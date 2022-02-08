@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="apollo_primary">#3F4143</color>
+    <color name="apollo_primary_dark">#3F4143</color>
+    <color name="apollo_accent">#03DAC5</color>
+    <!--背景色-->
+    <color name="apollo_background">#2E2E2E</color>
+    <!--图标-->
+    <color name="apollo_icon">#699B59</color>
+    <!--白色-->
+    <color name="apollo_white">#FFFFFF</color>
+    <!--黄色-->
+    <color name="apollo_yellow">#DBBC6F</color>
+    <color name="apollo_purple">#8D75A6</color>
+    <color name="apollo_verbose">#BBBBBB</color>
+    <color name="apollo_debug">#0070BB</color>
+    <color name="apollo_info">#48BB31</color>
+    <color name="apollo_warning">#BBBB23</color>
+    <color name="apollo_error">#FF0006</color>
+    <color name="apollo_assert">#FF6B68</color>
+</resources>

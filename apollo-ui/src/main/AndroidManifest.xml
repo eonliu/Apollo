@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.eonliu.apollo.ui">
+
+    <application>
+        <!-- 主页面 -->
+        <activity
+            android:name=".console.LauncherActivity"
+            android:icon="@mipmap/apollo_ic_launcher"
+            android:label="@string/apollo_app_name"
+            android:launchMode="singleTop"
+            android:roundIcon="@mipmap/apollo_ic_launcher_round"
+            android:taskAffinity="com.eonliu.apollo.${applicationId}"
+            android:theme="@style/ApolloAppTheme" />
+
+        <activity-alias
+            android:name="ui.console.ApolloLauncherActivity"
+            android:enabled="true"
+            android:icon="@mipmap/apollo_ic_launcher"
+            android:label="@string/apollo_app_name"
+            android:roundIcon="@mipmap/apollo_ic_launcher_round"
+            android:targetActivity=".console.LauncherActivity"
+            android:taskAffinity="com.eonliu.apollo.${applicationId}"
+            android:theme="@style/ApolloAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <!-- 环境切换页面 -->
+        <activity
+            android:name=".es.EnvironmentSwitcherActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/ApolloAppTheme" />
+
+        <activity
+            android:name=".es.EnvironmentChangeActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/ApolloAppTheme" />
+    </application>
+
+</manifest>

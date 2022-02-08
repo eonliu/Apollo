@@ -1,0 +1,7 @@
+include ':apollo-annotations'
+include ':apollo-compiler'
+include ':apollo-kernel'
+include ':apollo-ui'
+include ':apollo-samples'
+rootProject.name = "Apollo"
+include ':apollo-samples-lib'

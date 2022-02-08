@@ -1,0 +1,12 @@
+<resources>
+    <string name="apollo_app_name">Apollo</string>
+    <string name="apollo_console_environment_switcher">环境切换</string>
+    <string name="apollo_console_development">开发者选项</string>
+    <string name="apollo_console_app_info">App信息</string>
+    <string name="apollo_console_language">语言设置</string>
+    <string name="apollo_console_device_info">关于手机</string>
+    <string name="apollo_log_switch">Log开关</string>
+    <string name="apollo_current_environment">当前环境：</string>
+    <string name="apollo_module_business">业务专区</string>
+    <string name="apollo_module_tool">常用工具</string>
+</resources>

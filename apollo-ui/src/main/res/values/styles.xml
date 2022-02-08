@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="ApolloAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/apollo_primary</item>
+        <item name="colorPrimaryDark">@color/apollo_primary_dark</item>
+        <item name="android:windowBackground">@color/apollo_background</item>
+    </style>
+
+</resources>

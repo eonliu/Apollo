@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+def properties = new Properties()
+def inputStream = project.rootProject.file('local.properties').newDataInputStream()
+properties.load(inputStream)
+
+publish {
+    repoName = properties.getProperty('bintray.repoName')
+    userOrg = properties.getProperty('bintray.userOrg')
+    groupId = properties.getProperty('bintray.groupId')
+    artifactId = 'apollo-ui'
+    publishVersion = rootProject.ext.versions["versionName"]
+    desc = properties.getProperty('bintray.desc')
+    website = properties.getProperty('bintray.website')
+    bintrayUser = properties.getProperty('bintray.bintrayUser')
+    bintrayKey = properties.getProperty('bintray.bintrayKey')
+    dryRun = properties.getProperty('bintray.dryRun')
+}
+
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+
+    resourcePrefix versions.resourcePrefix
+
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompatibility
+        targetCompatibility versions.targetCompatibility
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation project(path: ':apollo-kernel')
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'
+    implementation 'com.google.android.material:material:1.2.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

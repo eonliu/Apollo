@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+def properties = new Properties()
+def inputStream = project.rootProject.file('local.properties').newDataInputStream()
+properties.load(inputStream)
+
+publish {
+    repoName = properties.getProperty('bintray.repoName')
+    userOrg = properties.getProperty('bintray.userOrg')
+    groupId = properties.getProperty('bintray.groupId')
+    artifactId = 'apollo-kernel'
+    publishVersion = rootProject.ext.versions["versionName"]
+    desc = properties.getProperty('bintray.desc')
+    website = properties.getProperty('bintray.website')
+    bintrayUser = properties.getProperty('bintray.bintrayUser')
+    bintrayKey = properties.getProperty('bintray.bintrayKey')
+    dryRun = properties.getProperty('bintray.dryRun')
+}
+
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+
+    resourcePrefix versions.resourcePrefix
+
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompatibility
+        targetCompatibility versions.targetCompatibility
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.startup:startup-runtime:1.0.0-alpha02"
+
+    api project(path: ':apollo-annotations')
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

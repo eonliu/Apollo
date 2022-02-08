@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.example.apollo"
+        minSdkVersion versions.minSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('./keystore.jks')
+            storePassword 'android'
+            keyAlias 'apollo_samples'
+            keyPassword 'android'
+        }
+
+        debug {
+            storeFile file('./keystore.jks')
+            storePassword 'android'
+            keyAlias 'apollo_samples'
+            keyPassword 'android'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.sourceCompatibility
+        targetCompatibility versions.targetCompatibility
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation "androidx.startup:startup-runtime:1.0.0-alpha02"
+    implementation project(path: ':apollo-samples-lib')
+
+    annotationProcessor rootProject.ext.dependencies["apolloCompiler"]
+    debugImplementation rootProject.ext.dependencies["apolloUi"]
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
